@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiliguagua.dao.ContactsDao">
+    <select id="getContacts" resultType="com.jiliguagua.entity.Contact">
+        select * from student
+    </select>
+
+    <insert id="insertContact" parameterType="com.jiliguagua.entity.Contact">
+        insert into student(vName, cSex, dBirth, cPhone, vEmail)
+        values(#{vName}, #{cSex}, #{dBirth}, #{cPhone}, #{vEmail})
+    </insert>
+
+    <update id="changeContact" parameterType="com.jiliguagua.entity.Contact">
+        update student set vName=#{vName}, cSex=#{cSex}, dBirth=#{dBirth}, cPhone=#{cPhone}, vEmail=#{vEmail} where cNo=#{cNo}
+    </update>
+
+    <delete id="deleteContact" parameterType="java.lang.Integer">
+        delete from student where cNo=#{cNo}
+    </delete>
+</mapper>
